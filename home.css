@@ -1,0 +1,181 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: #FFDB67;
+}
+.first{
+    padding-top: 20%;
+    padding-left: 17%;
+}
+.font1{
+    font-size: 30px;
+}
+.font2{
+    font-size: 60px;
+}
+.font3{
+    font-size: 23px;
+}
+/* Style for the photo container */
+.photo-container {
+    position: absolute;
+    top: 57%;
+    right: 9%;
+    transform: translateY(-50%);
+}
+
+/* Style to make the image rounded */
+.rounded-photo {
+    width: 400px;  /* Adjust the width as needed */
+    height: 400px;  /* Adjust the height as needed */
+    border-radius: 50%;  /* Makes the image round */
+    object-fit: cover;   /* Ensures the image is cropped within the circle */
+    border: 5px solid #fff;  /* Optional: Add a white border */
+}
+
+.side-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 20px;
+}
+
+.side-navbar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.side-navbar ul li {
+    padding: 10px 0;
+}
+
+.side-navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    display: block;
+    padding: 10px;
+    transition: background 0.3s ease;
+}
+
+.side-navbar ul li a:hover {
+    background-color: #FFDB67;
+    color: #333;
+}
+
+/* Main content styling */
+.content {
+    margin-left: 220px; /* Adjust content margin to prevent overlap with navbar */
+    padding: 20px;
+}
+
+.side-navbar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.side-navbar ul li {
+    padding: 10px 0;
+}
+
+.side-navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    display: block;
+    padding: 10px;
+    transition: background 0.3s ease;
+}
+
+.side-navbar ul li a:hover {
+    background-color: #FFDB67;
+    color: #333;
+}
+
+/* Main content styling */
+.content {
+    margin-left: 220px; /* Adjust content margin to prevent overlap with navbar */
+    padding: 20px;
+}
+
+/* About Section */
+.about-section {
+    margin-left: 220px; /* Align content next to sidebar */
+    padding: 50px 20px;
+    background-color:  #FFDB67;; /* Light gray background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin-top: 50px; /* Space from the top */
+}
+
+/* Flexbox layout for text and image */
+.about-content {
+    display: flex;
+    align-items: center; /* Vertically center text and image */
+    justify-content: space-between;
+}
+
+/* Text Section */
+.about-text {
+    max-width: 60%;
+}
+
+.about-text h3 {
+    font-size: 28px;
+    color: black; /* Accent color */
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.8;
+}
+
+/* Image Section */
+.about-image {
+    max-width: 25%; /* Adjust the width of the image container */
+    padding-left: 10%;
+}
+
+.about-pic {
+    width: 50%;
+    height: auto; /* Ensure the image is responsive */
+    border-radius: 10px; /* Rounded corners for image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for image */
+}
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 768px) {
+    .about-section {
+        margin-left: 0; /* No left margin for small screens */
+        padding: 30px 10px;
+    }
+    
+    .about-content {
+        flex-direction: column; /* Stack text and image vertically */
+    }
+
+    .about-text, .about-image {
+        max-width: 100%; /* Full width for both text and image */
+        margin-bottom: 20px;
+    }
+    
+    .about-text p {
+        font-size: 16px;
+    }
+}
+#icon1 {
+    width: 20px; /* adjust the width to your desired size */
+    height: 20px; /* adjust the height to your desired size */
+  }

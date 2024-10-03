@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+    <nav class="side-navbar">
+        <ul class="nav-links">
+            <li><a href="#top">01 TOP</a></li>
+            <li><a href="#about">02 ABOUT ME</a></li>
+            <li><a href="#services">03 MY SERVICES</a></li>
+            <li><a href="#skills">04 SKILLS</a></li>
+            <li><a href="#facts">05 FACTS</a></li>
+            <li><a href="#experience">06 EXPERIENCES</a></li>
+            <li><a href="#projects">07 PROJECTS</a></li>         
+            <li><a href="#contact">08 CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <div class="first">
+        <h3 class="font1">HI, I AM AJITH CHANDRAN</h3>
+        <h1 class="font2"><b><span id="dynamic-keyword">DEVELOPER</span>.....!</b></h1>
+        <h3 class="font3">based in Kerala, India.</h3>
+    </div>
+
+    <!-- Photo container with rounded image -->
+    <div class="photo-container">
+        <img src="./images/IMG_2291.jpg" alt="My Photo" class="rounded-photo">
+    </div>
+    <br><br>
+
+     <!-- About Us Section -->
+     <div id="about" class="about-section">
+        <div class="about-content">
+            <!-- About Image -->
+            <div class="about-image">
+                <img src="./images/customer-service_9607074.png" alt="About Me Image" class="about-pic">
+            </div>
+            <!-- About Text -->
+            <div class="about-text">
+                <h3><b>ABOUT ME</b></h3>
+                <p>Hello! I'm Ajith Chandran, a highly skilled and dedicated developer from the beautiful state of Kerala, India. With years of experience in the field, I specialize in a wide range of areas, including web development, user-centric design, and freelancing. My expertise spans across building dynamic, responsive websites, crafting intuitive user interfaces, and developing innovative solutions tailored to meet specific client needs.</p>
+            </div>
+        </div>
+    </div>
+
+    <!--Next Chapter-->
+
+    <div>
+        <img src="./images/arrow.png" id="icon1" alt="" srcset="">
+    </div>
+
+<script>
+    // List of keywords to cycle through
+    const keywords = ["DEVELOPER", "DESIGNER", "ENGINEER", "FREELANCER"];
+    let currentIndex = 0;
+
+    // Function to change the keyword every second
+    function changeKeyword() {
+        currentIndex = (currentIndex + 1) % keywords.length;  // Loop through the array
+        document.getElementById("dynamic-keyword").textContent = keywords[currentIndex];
+    }
+
+    // Change keyword every 1 second (1000 milliseconds)
+    setInterval(changeKeyword, 1000);
+</script>
+
+</body>
+</html>

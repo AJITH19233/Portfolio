@@ -1,138 +1,153 @@
 import { motion } from 'motion/react';
 import { useInView } from 'motion/react';
 import { useRef } from 'react';
-import { ExternalLink, Github } from 'lucide-react';
+import { SectionHeading } from './About';
+import { Github, ExternalLink, ArrowUpRight, Star } from 'lucide-react';
 
 interface Project {
   title: string;
   description: string;
-  tags: string[];
-  gradient: string;
+  features: string[];
+  tech: string[];
+  emoji: string;
+  featured?: boolean;
+  github?: string;
 }
+
+const projects: Project[] = [
+  {
+    title: 'Cloud DevOps Automation Platform',
+    description: 'End-to-end CI/CD pipeline with GitHub webhooks, Docker containerization, Kubernetes deployment, Jenkins automation, ArgoCD GitOps, and Infrastructure as Code.',
+    features: ['GitHub Webhook Integration', 'Docker & K8s Deployment', 'Jenkins + ArgoCD GitOps', 'Terraform IaC', 'Monitoring & Logging'],
+    tech: ['AWS', 'Docker', 'Kubernetes', 'Jenkins', 'Terraform', 'Ansible', 'GitHub Actions', 'ArgoCD', 'Python'],
+    emoji: '☁️',
+    featured: true,
+    github: 'https://github.com/AJITH19233',
+  },
+  {
+    title: 'SmartMediCare',
+    description: 'Doctor appointment management platform with JWT authentication, admin dashboard, search & filtering, and RESTful APIs.',
+    features: ['JWT Authentication', 'Appointment Management', 'Admin Dashboard', 'REST APIs'],
+    tech: ['React', 'Node.js', 'MongoDB', 'Express', 'JWT'],
+    emoji: '🏥',
+    github: 'https://github.com/AJITH19233',
+  },
+  {
+    title: 'MACFIESTA',
+    description: 'College event registration system with admin dashboard, payment tracking, and student management.',
+    features: ['Event Registration', 'Admin Dashboard', 'Payment Tracking'],
+    tech: ['React', 'Django', 'MySQL'],
+    emoji: '🎓',
+    github: 'https://github.com/AJITH19233',
+  },
+  {
+    title: 'Face Detection Attendance',
+    description: 'AI-powered attendance system with face recognition, real-time detection, and admin management.',
+    features: ['Face Recognition', 'Real-time Detection', 'Admin Panel'],
+    tech: ['React', 'Flask', 'MySQL', 'OpenCV'],
+    emoji: '👤',
+    github: 'https://github.com/AJITH19233',
+  },
+  {
+    title: 'AI Online Compiler (SmartCode)',
+    description: 'Multi-language compiler with AI assistant, code explanation, history tracking, and integrated learning platform.',
+    features: ['Multi-language Compiler', 'AI Code Assistant', 'Code History', 'Learning Platform'],
+    tech: ['React', 'Django', 'OpenAI', 'MySQL'],
+    emoji: '🧠',
+    github: 'https://github.com/AJITH19233',
+  },
+];
 
 export function Projects() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: '-60px' });
 
-  const projects: Project[] = [
-    {
-      title: 'AI Online Compiler (SmartCode)',
-      description: 'An intelligent online code compiler with AI-powered code suggestions and real-time execution.',
-      tags: ['React', 'Node.js', 'AI/ML', 'MongoDB'],
-      gradient: 'from-cyan-400 to-blue-600',
-    },
-    {
-      title: 'Doctor Appointment System',
-      description: 'Complete healthcare management system with appointment scheduling and patient records.',
-      tags: ['MERN', 'REST API', 'Authentication'],
-      gradient: 'from-green-400 to-emerald-600',
-    },
-    {
-      title: 'Expense Tracker App',
-      description: 'Smart expense tracking application with data visualization and budget management.',
-      tags: ['React', 'Node.js', 'Charts', 'MySQL'],
-      gradient: 'from-purple-400 to-pink-600',
-    },
-    {
-      title: 'College Event Management System',
-      description: 'Comprehensive platform for managing college events, registrations, and notifications.',
-      tags: ['Django', 'PostgreSQL', 'Bootstrap'],
-      gradient: 'from-orange-400 to-red-600',
-    },
-    {
-      title: 'Face Detection Attendance System',
-      description: 'AI-powered attendance tracking system using facial recognition technology.',
-      tags: ['Python', 'OpenCV', 'Flask', 'AI/ML'],
-      gradient: 'from-indigo-400 to-purple-600',
-    },
-  ];
+  const featured = projects.find((p) => p.featured);
+  const rest = projects.filter((p) => !p.featured);
 
   return (
-    <section id="projects" className="py-20 md:py-32 bg-black relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/10 via-transparent to-cyan-900/10" />
-      <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl" />
+    <section id="projects" className="py-20 md:py-28" style={{ background: 'var(--bg-secondary)' }}>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6" ref={ref}>
+        <SectionHeading label="Projects" title="Things I've built." subtitle="A selection of projects showcasing full stack, cloud, and AI skills." />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-6xl font-bold mb-5 text-white">
-  Featured{" "}
-  <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent inline-block">
-    Projects
-  </span>
-</h2>
+        {/* Featured project — full width */}
+        {featured && (
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5 }}
+            className="mb-6"
+          >
+            <div className="bento-card p-6 md:p-8 relative overflow-hidden">
+              <div className="absolute top-4 right-4 flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-semibold" style={{ background: 'var(--accent)', color: '#fff' }}>
+                <Star size={10} /> Featured
+              </div>
 
-          <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-600 mx-auto mb-6" />
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Showcasing real-world applications built with modern technologies
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
-              className="group relative bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:border-cyan-500/50 transition-all overflow-hidden"
-            >
-              {/* Glow Effect on Hover */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
-
-              <div className="relative z-10">
-                {/* Icon */}
-                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${project.gradient} flex items-center justify-center mb-4 shadow-lg`}>
-                  <span className="text-2xl">🎓</span>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <span className="text-3xl block mb-3">{featured.emoji}</span>
+                  <h3 className="text-lg font-bold mb-2" style={{ color: 'var(--text-primary)' }}>{featured.title}</h3>
+                  <p className="text-sm mb-4 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{featured.description}</p>
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {featured.tech.map((t) => (
+                      <span key={t} className="px-2.5 py-1 rounded-lg text-[10px] font-medium" style={{ background: 'var(--bg-secondary)', color: 'var(--text-secondary)', border: '1px solid var(--border)' }}>{t}</span>
+                    ))}
+                  </div>
+                  <a href={featured.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs font-semibold" style={{ color: 'var(--accent)' }}>
+                    <Github size={13} /> View on GitHub <ArrowUpRight size={11} />
+                  </a>
                 </div>
-
-                {/* Title */}
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">
-                  {project.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-gray-400 mb-4 line-clamp-3">
-                  {project.description}
-                </p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 text-xs rounded-full bg-white/10 text-gray-300 border border-white/20"
-                    >
-                      {tag}
-                    </span>
+                <div className="space-y-2">
+                  <h4 className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: 'var(--text-tertiary)' }}>Key Features</h4>
+                  {featured.features.map((f) => (
+                    <div key={f} className="flex items-center gap-2 p-2.5 rounded-xl text-[12px]" style={{ background: 'var(--bg-secondary)', color: 'var(--text-secondary)' }}>
+                      <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: 'var(--accent)' }} />{f}
+                    </div>
                   ))}
                 </div>
-
-                {/* Action Buttons */}
-                <div className="flex gap-3">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`flex-1 px-4 py-2 bg-gradient-to-r ${project.gradient} text-white rounded-lg font-semibold shadow-lg opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2`}
-                  >
-                    <ExternalLink size={16} />
-                    View Details
-                  </motion.button>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="p-2 bg-white/10 text-white rounded-lg border border-white/20 opacity-0 group-hover:opacity-100 transition-opacity"
-                  >
-                    <Github size={20} />
-                  </motion.button>
-                </div>
               </div>
+            </div>
+          </motion.div>
+        )}
+
+        {/* Other projects */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+          {rest.map((project, i) => (
+            <motion.div
+              key={project.title}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.4, delay: 0.1 + i * 0.06 }}
+              className="bento-card p-5 flex flex-col"
+            >
+              <div className="flex items-start gap-2.5 mb-3">
+                <div className="w-9 h-9 rounded-xl flex items-center justify-center text-lg flex-shrink-0" style={{ background: 'var(--bg-secondary)' }}>
+                  {project.emoji}
+                </div>
+                <h3 className="text-sm font-semibold leading-tight pt-1" style={{ color: 'var(--text-primary)' }}>
+                  {project.title}
+                </h3>
+              </div>
+
+              <p className="text-[12px] leading-relaxed mb-4 flex-1" style={{ color: 'var(--text-tertiary)' }}>
+                {project.description}
+              </p>
+
+              <div className="flex flex-wrap gap-1 mb-3">
+                {project.tech.map((t) => (
+                  <span key={t} className="px-2 py-0.5 rounded-md text-[9px] font-medium" style={{ background: 'var(--bg-secondary)', color: 'var(--text-tertiary)' }}>{t}</span>
+                ))}
+              </div>
+
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-[11px] font-medium mt-auto"
+                style={{ color: 'var(--accent)' }}
+              >
+                <Github size={12} /> Source Code <ArrowUpRight size={10} />
+              </a>
             </motion.div>
           ))}
         </div>

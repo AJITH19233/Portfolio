@@ -1,15 +1,29 @@
-
-  <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Ajith Portfolio</title>
-    </head>
-
-    <body>
-      <div id="root"></div>
-      <script type="module" src="/src/main.tsx"></script>
-    </body>
-  </html>
-  
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajith Chandran G — Software Developer | Full Stack | Cloud & DevOps</title>
+    <meta name="description" content="Portfolio of Ajith Chandran G — Full Stack Developer, Cloud & DevOps Engineer. Building scalable applications and cloud-native infrastructure." />
+    <meta name="keywords" content="Full Stack Developer, Cloud Engineer, DevOps, AWS, React, Django, Portfolio" />
+    <meta name="author" content="Ajith Chandran G" />
+    <meta name="theme-color" content="#FAFAFA" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script>
+      // Prevent flash — apply theme before render
+      (function(){
+        const t = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (t === 'dark' || (!t && prefersDark)) {
+          document.documentElement.classList.add('dark');
+          document.querySelector('meta[name="theme-color"]').content = '#0A0A0A';
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

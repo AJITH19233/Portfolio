@@ -8,7 +8,6 @@ const certs = [
   { title: 'MERN Stack Certification', issuer: 'Professional Course', date: '2024', icon: '🌐', skills: ['MongoDB', 'Express', 'React', 'Node.js'] },
   { title: 'Python Flask Web Development', issuer: 'ICT Academy', date: '2024', icon: '🐍', skills: ['Flask', 'REST API', 'Python', 'Backend'] },
   { title: 'DevOps Engineer Certification', issuer: 'Online Course', date: '2024', icon: '⚙️', skills: ['Docker', 'K8s', 'CI/CD', 'AWS'] },
-  { title: 'Microsoft Azure Fundamentals', issuer: 'Microsoft', date: '2024', icon: '☁️', skills: ['Azure', 'Cloud', 'Security', 'Pricing'] },
 ];
 
 export function Certifications() {

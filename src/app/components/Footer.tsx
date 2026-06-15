@@ -40,9 +40,7 @@ export function Footer() {
           <p className="text-[11px] flex items-center justify-center gap-1.5" style={{ color: 'var(--text-tertiary)' }}>
             © {y} Ajith Chandran G · Crafted with <Heart className="w-3 h-3 fill-red-400/50 text-red-400/50" /> in Kerala
           </p>
-          <p className="text-[9px] mt-1 font-mono" style={{ color: 'var(--text-tertiary)', opacity: 0.5 }}>
-            React + Vite + Tailwind + Motion
-          </p>
+          
         </div>
       </div>
     </footer>
